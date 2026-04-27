@@ -1,0 +1,79 @@
+/* สไตล์เฉพาะหน้าแรก */
+.hero {
+    /* 1. linear-gradient: ใส่สีเขียวโปร่งแสงทับรูปภาพไว้ เพื่อให้ตัวหนังสือสีขาวอ่านง่ายขึ้น 
+        2. url: คือการดึงรูปภาพมาแสดง (สังเกตว่ามี ../ เพื่อถอยออกจากโฟลเดอร์ css ไปเข้าโฟลเดอร์ images)
+    */
+    background: linear-gradient(rgba(10, 61, 42, 0.7), rgba(17, 94, 65, 0.85)), 
+                url('../images/background.jpg') center/cover no-repeat;
+    
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* เพิ่มเงาให้ตัวหนังสืออ่านง่ายขึ้น */
+}
+
+.hero p { 
+    font-size: 1.3rem; 
+    margin-bottom: 30px; 
+    color: #f1f1f1;
+}
+
+/* แกลเลอรี่รูปภาพ */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.img-wrapper {
+    overflow: hidden; /* จำเป็นสำหรับเอฟเฟกต์ซูมรูป */
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    /* กำหนดสัดส่วนรูปภาพให้เท่ากันทุกรูป (กว้าง:สูง) สำหรับหน้าจอทั่วไป */
+    aspect-ratio: 4 / 3;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 100%;
+    /* จัดการภาพไม่ให้เบี้ยวเมื่อถูกบังคับขนาด โดยมันจะซูมและครอปส่วนเกินออกให้อัตโนมัติ */
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* ซูมรูปภาพเมื่อเอาเมาส์ชี้ */
+.img-wrapper:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.img-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+/* --- การแสดงผลสำหรับหน้าจอมือถือ (ความกว้างไม่เกิน 768px) --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1.1rem; }
+    
+    /* บังคับความสูงของรูปภาพให้เท่ากันทุกรูปในหน้าจอมือถือ */
+    .img-wrapper {
+        height: 250px; 
+    }
+}

@@ -1,0 +1,30 @@
+/* สไตล์เฉพาะหน้าประวัติความเป็นมา */
+.history-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.img-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.history-img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.img-wrapper:hover .history-img {
+    transform: scale(1.03);
+}
+
+.history-text {
+    text-align: left;
+    text-indent: 3rem; /* ย่อหน้าสวยๆ */
+    color: var(--text-dark);
+}

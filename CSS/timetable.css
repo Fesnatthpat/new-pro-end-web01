@@ -1,0 +1,48 @@
+/* สไตล์เฉพาะหน้าตารางเวลาละหมาด */
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 12px; /* ตารางมุมโค้ง */
+    box-shadow: var(--shadow-md);
+    background: white;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+th { 
+    background-color: var(--primary); 
+    color: white; 
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+td {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+}
+
+td.time {
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+/* สลับสีแถวตารางให้อ่านง่าย */
+tbody tr:nth-child(even) {
+    background-color: #f9fdfa;
+}
+
+tbody tr:hover { 
+    background-color: #eef7f3;
+    transition: background-color 0.2s;
+}

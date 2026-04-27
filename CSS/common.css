@@ -1,0 +1,215 @@
+/* =========================================
+   common.css - ตัวแปรสีและสไตล์พื้นฐานที่ทันสมัย
+========================================= */
+
+/* ประกาศตัวแปรสีและค่าต่างๆ เพื่อให้แก้ไขง่าย */
+:root {
+    --primary: #115e41;        /* สีเขียวหลัก */
+    --primary-dark: #0a3d2a;   /* สีเขียวเข้ม */
+    --accent: #d4af37;         /* สีทอง */
+    --accent-hover: #bda036;   /* สีทองตอนชี้เมาส์ */
+    --bg-light: #f4f7f6;       /* สีพื้นหลังอ่อน */
+    --text-dark: #333333;      /* สีตัวอักษรเข้ม */
+    --text-light: #666666;     /* สีตัวอักษรอ่อน */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ตั้งค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif; /* เปลี่ยนมาใช้ฟอนต์ Prompt */
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- ส่วนเมนูนำทาง (Navbar) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(17, 94, 65, 0.95); /* โปร่งแสงนิดๆ */
+    backdrop-filter: blur(10px); /* เอฟเฟกต์กระจกฝ้าเบาๆ */
+    color: white;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+/* ลูกเล่นเส้นใต้เมนูตอน Hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+/* ปุ่มแฮมเบอร์เกอร์ */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: var(--transition);
+    border-radius: 3px;
+}
+
+/* --- โครงสร้างเนื้อหาทั่วไป --- */
+.intro {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: auto;
+    flex: 1; /* ดัน Footer ลงไปล่างสุดเสมอ */
+}
+
+/* หัวข้อของแต่ละหน้า (Section Header) */
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.divider {
+    height: 4px;
+    width: 60px;
+    background-color: var(--accent);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+p.subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+/* ปุ่มกดทั่วไป (Button) */
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--primary-dark);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px; /* ขอบปุ่มมนสวยงาม */
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px); /* ลอยขึ้นตอนชี้เมาส์ */
+    box-shadow: var(--shadow-md);
+}
+
+/* --- ส่วนท้าย (Footer) --- */
+footer {
+    background-color: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: auto;
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+/* Animation ง่ายๆ ตอนโหลดหน้าเว็บ */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- รองรับมือถือสำหรับเมนู --- */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        flex-direction: column;
+        background-color: rgba(17, 94, 65, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.4s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding: 2rem 0;
+    }
+
+    .nav-links.active { left: 0; }
+    .nav-links li { margin: 1.5rem 0; }
+}
