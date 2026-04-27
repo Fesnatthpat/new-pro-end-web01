@@ -1,7 +1,6 @@
-/* สไตล์เฉพาะหน้ากิจกรรม */
 .activity-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 20px;
 }
@@ -11,14 +10,14 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    border: 1px solid #f0f0f0;
     display: flex;
     flex-direction: column;
+    transition: var(--transition);
+    border: 1px solid #f0f0f0;
 }
 
 .activity-card:hover {
-    transform: translateY(-8px); /* การ์ดลอยขึ้น */
+    transform: translateY(-8px);
     box-shadow: var(--shadow-md);
 }
 
@@ -35,7 +34,7 @@
 }
 
 .activity-card:hover img {
-    transform: scale(1.1); /* ซูมรูป */
+    transform: scale(1.1);
 }
 
 .card-content {
@@ -58,5 +57,5 @@
 
 .activity-card p {
     color: var(--text-light);
-    font-size: 1rem;
-} 
+    margin-bottom: 0;
+}

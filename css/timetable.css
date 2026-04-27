@@ -1,16 +1,18 @@
-/* สไตล์เฉพาะหน้าตารางเวลาละหมาด */
+/* =========================================
+   timetable.css - สไตล์เฉพาะหน้าตารางเวลาละหมาด
+========================================= */
+
 .table-container {
     overflow-x: auto;
-    margin-top: 20px;
-    border-radius: 12px; /* ตารางมุมโค้ง */
+    margin: 20px auto 0; /* จัดให้อยู่กึ่งกลาง */
+    border-radius: 12px; 
     box-shadow: var(--shadow-md);
     background: white;
+    max-width: 800px; /* จำกัดความกว้างกล่องขาวไม่ให้กว้างเกินไป */
 }
 
 table {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
     border-collapse: collapse;
 }
 

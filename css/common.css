@@ -1,57 +1,67 @@
-/* =========================================
-   common.css - ตัวแปรสีและสไตล์พื้นฐานที่ทันสมัย
-========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
 
-/* ประกาศตัวแปรสีและค่าต่างๆ เพื่อให้แก้ไขง่าย */
 :root {
-    --primary: #115e41;        /* สีเขียวหลัก */
-    --primary-dark: #0a3d2a;   /* สีเขียวเข้ม */
-    --accent: #d4af37;         /* สีทอง */
-    --accent-hover: #bda036;   /* สีทองตอนชี้เมาส์ */
-    --bg-light: #f4f7f6;       /* สีพื้นหลังอ่อน */
-    --text-dark: #333333;      /* สีตัวอักษรเข้ม */
-    --text-light: #666666;     /* สีตัวอักษรอ่อน */
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-    --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+    --primary: #115e41;
+    --primary-dark: #0a3d2a;
+    --accent: #d4af37;
+    --accent-hover: #bda036;
+    --bg-light: #f4f7f6;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.12);
     --transition: all 0.3s ease-in-out;
 }
 
-/* ตั้งค่าพื้นฐาน */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Prompt', sans-serif; /* เปลี่ยนมาใช้ฟอนต์ Prompt */
+    /* สำคัญมาก ป้องกันกล่องล้น */
+    font-family: 'Prompt', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    /* ล็อกจอไม่ให้เลื่อนซ้ายขวา 100% */
+    background-color: var(--bg-light);
+    color: var(--text-dark);
 }
 
 body {
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--bg-light);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 65px; /* เพิ่มระยะห่างด้านบน กัน Navbar บังเนื้อหา */
 }
 
-/* --- ส่วนเมนูนำทาง (Navbar) --- */
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Navbar */
 .navbar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(17, 94, 65, 0.95); /* โปร่งแสงนิดๆ */
-    backdrop-filter: blur(10px); /* เอฟเฟกต์กระจกฝ้าเบาๆ */
+    background-color: rgba(17, 94, 65, 0.98);
+    backdrop-filter: blur(10px);
     color: white;
     padding: 1rem 5%;
-    position: sticky;
+    position: fixed; /* เปลี่ยนจาก sticky เป็น fixed แก้ปัญหาไม่ติดขอบ */
     top: 0;
+    left: 0;
     z-index: 1000;
     box-shadow: var(--shadow-sm);
 }
 
 .logo {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -60,20 +70,19 @@ body {
 }
 
 .nav-links li {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: 1rem;
     position: relative;
     padding: 5px 0;
     transition: var(--transition);
 }
 
-/* ลูกเล่นเส้นใต้เมนูตอน Hover */
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -95,7 +104,6 @@ body {
     color: var(--accent);
 }
 
-/* ปุ่มแฮมเบอร์เกอร์ */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -108,27 +116,25 @@ body {
     margin: 5px auto;
     background-color: white;
     transition: var(--transition);
-    border-radius: 3px;
 }
 
-/* --- โครงสร้างเนื้อหาทั่วไป --- */
+/* Layout พื้นฐาน */
 .intro {
-    padding: 5rem 5%;
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
-    flex: 1; /* ดัน Footer ลงไปล่างสุดเสมอ */
+    margin: 0 auto;
+    padding: 4rem 5%;
+    flex: 1;
 }
 
-/* หัวข้อของแต่ละหน้า (Section Header) */
 .section-header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .section-header h2 {
     color: var(--primary-dark);
     font-size: 2.2rem;
-    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -147,7 +153,6 @@ p.subtitle {
     margin-bottom: 3rem;
 }
 
-/* ปุ่มกดทั่วไป (Button) */
 .btn {
     display: inline-block;
     background-color: var(--accent);
@@ -155,7 +160,7 @@ p.subtitle {
     padding: 12px 30px;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 30px; /* ขอบปุ่มมนสวยงาม */
+    border-radius: 30px;
     border: none;
     cursor: pointer;
     box-shadow: var(--shadow-sm);
@@ -164,52 +169,62 @@ p.subtitle {
 
 .btn:hover {
     background-color: var(--accent-hover);
-    transform: translateY(-3px); /* ลอยขึ้นตอนชี้เมาส์ */
+    transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
 
-/* --- ส่วนท้าย (Footer) --- */
 footer {
     background-color: var(--primary-dark);
     color: white;
     text-align: center;
     padding: 2rem 0;
     margin-top: auto;
-    font-size: 0.9rem;
-    opacity: 0.95;
 }
 
-/* Animation ง่ายๆ ตอนโหลดหน้าเว็บ */
 .fade-in {
     animation: fadeIn 0.8s ease-in-out;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* --- รองรับมือถือสำหรับเมนู --- */
+/* Mobile Menu */
 @media (max-width: 768px) {
-    .hamburger { display: block; }
-    
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    .hamburger {
+        display: block;
+    }
 
     .nav-links {
         position: fixed;
         left: -100%;
-        top: 60px;
+        top: 65px; /* ปรับให้พอดีกับความสูงของ Navbar ตัวใหม่ */
         flex-direction: column;
         background-color: rgba(17, 94, 65, 0.98);
         width: 100%;
         text-align: center;
         transition: 0.4s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
         padding: 2rem 0;
     }
 
-    .nav-links.active { left: 0; }
-    .nav-links li { margin: 1.5rem 0; }
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
 }

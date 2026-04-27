@@ -1,4 +1,3 @@
-/* สไตล์เฉพาะหน้าประวัติความเป็นมา */
 .history-content {
     max-width: 900px;
     margin: 0 auto;
@@ -25,6 +24,6 @@
 
 .history-text {
     text-align: left;
-    text-indent: 3rem; /* ย่อหน้าสวยๆ */
+    text-indent: 3rem;
     color: var(--text-dark);
 }

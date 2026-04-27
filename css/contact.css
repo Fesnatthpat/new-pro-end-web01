@@ -1,4 +1,3 @@
-/* สไตล์เฉพาะหน้าติดต่อเรา */
 .contact-container {
     max-width: 900px;
     margin: 0 auto;
@@ -6,7 +5,7 @@
     border-radius: 15px;
     box-shadow: var(--shadow-md);
     display: grid;
-    grid-template-columns: 1fr 1.5fr; /* แบ่งเป็น 2 คอลัมน์บนจอคอม */
+    grid-template-columns: 1fr 1.5fr;
     overflow: hidden;
 }
 
@@ -33,8 +32,8 @@
     padding: 3rem 2rem;
 }
 
-.form-group { 
-    margin-bottom: 20px; 
+.form-group {
+    margin-bottom: 20px;
 }
 
 .form-group label {
@@ -49,14 +48,12 @@
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
-    border-radius: 8px; /* ช่องกรอกข้อมูลขอบมน */
+    border-radius: 8px;
     font-size: 1rem;
-    font-family: inherit;
-    transition: var(--transition);
     background-color: #fafafa;
+    transition: var(--transition);
 }
 
-/* เอฟเฟกต์ตอนกดพิมพ์ข้อความ (Focus) */
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
@@ -72,9 +69,12 @@
     border-radius: 8px;
 }
 
-/* ปรับให้เป็นคอลัมน์เดียวบนมือถือ */
 @media (max-width: 768px) {
     .contact-container {
         grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 2rem 1.5rem;
     }
 }

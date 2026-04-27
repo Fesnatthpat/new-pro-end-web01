@@ -1,0 +1,54 @@
+/* =========================================
+   donate.css - รูปแบบฟอร์ม (แก้ไขบัตรโดนบีบ)
+========================================= */
+
+.donation-container { 
+    display: grid; /* ใช้ Grid แก้ปัญหาการบีบ */
+    grid-template-columns: 1fr; /* บนมือถือให้เป็น 1 คอลัมน์ */
+    gap: 2rem; 
+    width: 100%; 
+}
+
+.qr-card, .form-card { 
+    background: white; 
+    padding: 2rem; 
+    border-radius: 15px; 
+    box-shadow: var(--shadow-md); 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.qr-card { text-align: center; border-top: 5px solid var(--accent); }
+.qr-wrapper { background: #f9f9f9; padding: 15px; border-radius: 10px; margin: 15px 0; border: 1px dashed #ddd; }
+.qr-wrapper img { width: 100%; max-width: 200px; margin: 0 auto; display: block; }
+.account-info { text-align: left; background: var(--bg-light); padding: 15px; border-radius: 8px; font-size: 0.95rem; word-wrap: break-word; }
+.account-info p { margin-bottom: 5px; }
+
+.account-number-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.copy-wrapper { position: relative; display: inline-flex; }
+.copy-btn { background: none; border: none; color: var(--primary); cursor: pointer; padding: 5px; border-radius: 5px; transition: var(--transition); }
+.copy-btn:hover { background-color: #eef7f3; }
+
+.copy-msg { position: absolute; bottom: 100%; left: 0; background: var(--primary-dark); color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.75rem; opacity: 0; visibility: hidden; transition: 0.2s; white-space: nowrap; }
+.copy-msg.show { opacity: 1; visibility: visible; }
+
+.form-card h3 { margin-bottom: 20px; color: var(--primary-dark); border-left: 4px solid var(--primary); padding-left: 10px; }
+.donation-form .form-group { margin-bottom: 15px; width: 100%; }
+.donation-form label { display: block; margin-bottom: 5px; font-weight: 500; }
+.donation-form input, .donation-form textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; background-color: #fafafa; box-sizing: border-box; transition: var(--transition); }
+.donation-form input:focus, .donation-form textarea:focus { outline: none; border-color: var(--primary); background-color: white; box-shadow: 0 0 0 3px rgba(17, 94, 65, 0.1); }
+
+.file-input-wrapper { border: 2px dashed #ccc; padding: 15px; border-radius: 8px; text-align: center; background: #fcfcfc; width: 100%; box-sizing: border-box; }
+.file-input-wrapper input[type="file"] { width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-full { width: 100%; margin-top: 10px; }
+
+/* หน้าจอคอมพิวเตอร์ (กว้างกว่า 992px) แบ่งสัดส่วนชัดเจน ไม่ให้โดนบีบ */
+@media (min-width: 992px) {
+    .donation-container { 
+        grid-template-columns: 1fr 1.5fr; /* อัตราส่วน 40% และ 60% */
+        align-items: start; 
+        gap: 3rem; 
+    }
+}
+
+@media (max-width: 768px) { .qr-card, .form-card { padding: 1.5rem; } }
